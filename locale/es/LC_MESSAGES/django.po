@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-20 15:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/base.html:26
+msgid "Search By City"
+msgstr "Buscar por Ciudad"
+
+#: templates/partials/footer.html:6
+msgid "This is a cloned Airbnb"
+msgstr "Por favor no nos copies"
+
+#: templates/partials/footer.html:8
+msgid "All rights reserved"
+msgstr "Todos los derechos reservados"
+
+#: templates/partials/nav.html:7
+msgid "Stop hosting"
+msgstr "Cambiar a Invitado"
+
+#: templates/partials/nav.html:9
+msgid "Start hosting"
+msgstr "Cambiar a Host"
+
+#: templates/partials/nav.html:14
+msgid "Create Room"
+msgstr "Crear Habitación"
+
+#: templates/partials/nav.html:16
+msgid "Favs"
+msgstr "es Favs"
+
+#: templates/partials/nav.html:17
+msgid "Profile"
+msgstr "Perfil"
+
+#: templates/partials/nav.html:18
+msgid "Log out"
+msgstr "Cerrar Sesión"
+
+#: templates/partials/nav.html:20
+msgid "Log in"
+msgstr "Iniciar Sesión"
+
+#: templates/partials/nav.html:21
+msgid "Sign up"
+msgstr "es Sign"
+
+#: templates/rooms/room_detail.html:42
+msgid "Remove from Favourites"
+msgstr "es Remove"
+
+#: templates/rooms/room_detail.html:45
+msgid "Save to Favourites"
+msgstr "es Save"
+
+#: users/mixins.py:13
+msgid "Can't go there"
+msgstr "No puedes ir ahí"
+
+#: users/models.py:20
+msgid "Male"
+msgstr "Hombre"
+
+#: users/models.py:21
+msgid "Female"
+msgstr "Mujer"
+
+#: users/models.py:22
+msgid "Other"
+msgstr "Otro"
+
+#: users/models.py:28
+msgid "English"
+msgstr "Inglés"
+
+#: users/models.py:29
+msgid "Korean"
+msgstr "Coreano"
+
+#: users/models.py:47
+msgid "gender"
+msgstr "género"
+
+#: users/models.py:49
+msgid "bio"
+msgstr "biografía"
+
+#: users/models.py:52
+msgid "language"
+msgstr "lenguage"
+
+#: users/models.py:79
+msgid "Verify Airbnb Account"
+msgstr "Verificar Cuenta de Airbnb"
