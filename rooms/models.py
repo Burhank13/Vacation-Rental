@@ -1,7 +1,6 @@
 from django.utils import timezone
 from django.db import models
 from django.urls import reverse
-from django_countries.fields import CountryField
 from core import models as core_models
 from cal import Calendar
 
@@ -19,15 +18,15 @@ class AbstractItem(core_models.TimeStampedModel):
         return self.name
 
 
-class RoomType(AbstractItem):
+# class RoomType(AbstractItem):
 
-    """ Roomtype Model Definition """
+#     """ Roomtype Model Definition """
 
-    pass
+#     pass
 
-    class Meta:
-        verbose_name = "Room Type"
-        ordering = ["name"]
+#     class Meta:
+#         verbose_name = "Room Type"
+#         ordering = ["name"]
 
 
 class Amenity(AbstractItem):
@@ -77,7 +76,6 @@ class Room(core_models.TimeStampedModel):
 
     name = models.CharField(max_length=140)
     description = models.TextField()
-    country = CountryField()
     city = models.CharField(max_length=80)
     price = models.IntegerField()
     address = models.CharField(max_length=140)
@@ -91,9 +89,9 @@ class Room(core_models.TimeStampedModel):
     host = models.ForeignKey(
         "users.User", related_name="rooms", on_delete=models.CASCADE
     )
-    room_type = models.ForeignKey(
-        "RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True
-    )
+    # room_type = models.ForeignKey(
+    #     "RoomType", related_name="rooms", on_delete=models.SET_NULL, null=True
+    # )
     amenities = models.ManyToManyField("Amenity", related_name="rooms", blank=True)
     facilities = models.ManyToManyField("Facility", related_name="rooms", blank=True)
     house_rules = models.ManyToManyField("HouseRule", related_name="rooms", blank=True)

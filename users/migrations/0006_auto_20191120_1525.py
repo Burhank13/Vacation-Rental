@@ -20,9 +20,9 @@ class Migration(migrations.Migration):
             name='gender',
             field=models.CharField(blank=True, choices=[('male', 'Male'), ('female', 'Female'), ('other', 'Other')], max_length=10, verbose_name='gender'),
         ),
-        migrations.AlterField(
-            model_name='user',
-            name='language',
-            field=models.CharField(blank=True, choices=[('en', 'English'), ('kr', 'Korean')], default='kr', max_length=2, verbose_name='language'),
-        ),
+        # migrations.AlterField(
+        #     model_name='user',
+        #     name='language',
+        #     field=models.CharField(blank=True, choices=[('en', 'English'), ('kr', 'Korean')], default='kr', max_length=2, verbose_name='language'),
+        # ),
     ]

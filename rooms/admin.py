@@ -3,7 +3,7 @@ from django.utils.html import mark_safe
 from . import models
 
 
-@admin.register(models.RoomType, models.Facility, models.Amenity, models.HouseRule)
+@admin.register(models.Facility, models.Amenity, models.HouseRule)
 class ItemAdmin(admin.ModelAdmin):
 
     """ Item Admin Definition """
@@ -37,7 +37,6 @@ class RoomAdmin(admin.ModelAdmin):
                     "city",
                     "address",
                     "price",
-                    "room_type",
                 )
             },
         ),
@@ -55,7 +54,6 @@ class RoomAdmin(admin.ModelAdmin):
 
     list_display = (
         "name",
-        "country",
         "city",
         "price",
         "guests",
@@ -73,12 +71,10 @@ class RoomAdmin(admin.ModelAdmin):
     list_filter = (
         "instant_book",
         "host__superhost",
-        "room_type",
         "amenities",
         "facilities",
         "house_rules",
         "city",
-        "country",
     )
 
     raw_id_fields = ("host",)

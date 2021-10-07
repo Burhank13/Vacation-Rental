@@ -4,6 +4,9 @@ from django.shortcuts import redirect, reverse, render
 from django.views.generic import View
 from users import models as user_models
 from . import models
+# from django.contrib.auth.decorators import login_required
+
+import conversations
 
 
 def go_conversation(request, a_pk, b_pk):
@@ -52,3 +55,7 @@ class ConversationDetailView(View):
                 message=message, user=self.request.user, conversation=conversation
             )
         return redirect(reverse("conversations:detail", kwargs={"pk": pk}))
+
+
+def conver_list(request):
+    return render("conversations/conversation_list")

@@ -47,17 +47,15 @@ class SearchView(View):
 
     def get(self, request):
 
-        country = request.GET.get("country")
+        city = request.GET.get("city")
 
-        if country:
+        if city:
 
             form = forms.SearchForm(request.GET)
 
             if form.is_valid():
 
                 city = form.cleaned_data.get("city")
-                country = form.cleaned_data.get("country")
-                room_type = form.cleaned_data.get("room_type")
                 price = form.cleaned_data.get("price")
                 guests = form.cleaned_data.get("guests")
                 bedrooms = form.cleaned_data.get("bedrooms")
@@ -72,11 +70,6 @@ class SearchView(View):
 
                 if city != "Anywhere":
                     filter_args["city__startswith"] = city
-
-                filter_args["country"] = country
-
-                if room_type is not None:
-                    filter_args["room_type"] = room_type
 
                 if price is not None:
                     filter_args["price__lte"] = price

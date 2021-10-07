@@ -1,17 +1,15 @@
 from django import forms
-from django_countries.fields import CountryField
 from . import models
-from django_countries import countries
+# from django_countries import countries
 
 
 class SearchForm(forms.Form):
 
     city = forms.CharField(initial="Anywhere")
-    country = forms.ChoiceField(choices=list(countries))
-    # country = CountryField(default="KR").formfield()
-    room_type = forms.ModelChoiceField(
-        required=False, empty_label="Any kind", queryset=models.RoomType.objects.all()
-    )
+    # country = forms.ChoiceField(choices=list(countries))
+    # room_type = forms.ModelChoiceField(
+    #     required=False, empty_label="Any kind", queryset=models.RoomType.objects.all()
+    # )
     price = forms.IntegerField(required=False)
     guests = forms.IntegerField(required=False)
     bedrooms = forms.IntegerField(required=False)
@@ -49,7 +47,6 @@ class CreateRoomForm(forms.ModelForm):
         fields = (
             "name",
             "description",
-            "country",
             "city",
             "price",
             "address",
@@ -60,7 +57,6 @@ class CreateRoomForm(forms.ModelForm):
             "check_in",
             "check_out",
             "instant_book",
-            "room_type",
             "amenities",
             "facilities",
             "house_rules",
