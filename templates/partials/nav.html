@@ -12,7 +12,9 @@
     </li>
     {% if request.session.is_hosting %}
     <li class="nav_link"><a href="{% url 'rooms:create' %}">{% trans "Create Room" %}</a></li>
+    <li class="nav_link"><a href="{% url 'reservations:booking_list' %}">{% trans "Bookings" %}</a></li>
     {% endif %}
+    <li class="nav_link"><a href="{% url 'reservations:reservation_list' %}">{% trans "Reservations" %}</a></li>
     <li class="nav_link"><a href="{% url 'conversations:conver_lists' %}">{% trans "Chats" %}</a></li>
     <li class="nav_link"><a href="{% url 'lists:see-favs' %}">{% trans "Favs" %} ({{user.list.rooms.count}})</a></li>
     <li class="nav_link"><a href="{{user.get_absolute_url}}">{% trans "Profile" %}</a></li>

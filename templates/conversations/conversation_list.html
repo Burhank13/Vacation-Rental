@@ -9,14 +9,16 @@ Conversation
 
 {% block content %}
 
-<div class="container mx-auto my-10 mt-32 flex justify-between min-h-50vh">
-
-    <div class="border w-1/4 p-10">
-        <span class="text-center w-full block text-lg font-medium">Conversation between:</span>
-        <div class="flex justify-between mt-10 items-center">
-            {% for user in conversation.participants.all  %}
-            <div class="flex flex-col items-center">
-                {% include "mixins/user_avatar.html" with user=user %}
+{% if conversation %}
+<div class="container-fluid">
+<div class="flex-row flex-wrap" style="display: flex; justify-content: space-evenly;">
+    {% for users in conversation %}
+    <div class="border mt-5" style="width: 360px; height: auto">
+        <a href="{% url 'conversations:detail' users.pk %}">
+        <span class="text-center block text-lg font-medium">Conversation between:</span>
+        <div class="text-center">
+            {% for user in users.participants.all  %}
+            <div class=" items-center">
                 <span class="mt-2 text-gray-500">{{user.first_name}}</span>
             </div>
             {% if forloop.first %}
@@ -24,4 +26,12 @@ Conversation
             {% endif %}
             {% endfor %}
         </div>
+        </a>
     </div>
+    {% endfor %}
+</div>
+    {% else %}
+    <h1>No chats to display</h1>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,11 +1,13 @@
 import datetime
 from django.http import Http404
+from django.http.request import host_validation_re
 from django.views.generic import View
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from rooms import models as room_models
 from reviews import forms as review_forms
 from . import models
+import reservations
 
 
 class CreateError(Exception):
@@ -22,12 +24,7 @@ def create(request, room, year, month, day):
         messages.error(request, "Can't Reserve That Room")
         return redirect(reverse("core:home"))
     except models.BookedDay.DoesNotExist:
-        reservation = models.Reservation.objects.create(
-            guest=request.user,
-            room=room,
-            check_in=date_obj,
-            check_out=date_obj + datetime.timedelta(days=1),
-        )
+        reservation = models.Reservation.objects.create(guest=request.user,room=room,check_in=date_obj,check_out=date_obj + datetime.timedelta(days=1),)
         return redirect(reverse("reservations:detail", kwargs={"pk": reservation.pk}))
 
 
@@ -62,3 +59,17 @@ def edit_reservation(request, pk, verb):
     reservation.save()
     messages.success(request, "Reservation Updated")
     return redirect(reverse("reservations:detail", kwargs={"pk": reservation.pk}))
+
+
+def reservation_list(request):
+    reservations = models.Reservation.objects.filter(guest=request.user)
+    return render(request, "reservations/reservation_list.html", {"reservations": reservations})
+
+
+def booking_list(request):
+    rooms=room_models.Room.objects.filter(host=request.user)
+    bookings=[]
+    for room in rooms:
+        booking = models.Reservation.objects.filter(room=room)
+        bookings= bookings + list(booking)
+    return render(request, "reservations/bookings.html",{"bookings": bookings})
