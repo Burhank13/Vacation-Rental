@@ -4,11 +4,8 @@
             style="background-image: url({{room.first_photo}});"></div>
         <div class="flex justify-between mb-2 truncate">
             <div class="w-4/5 overflow-hidden flex">
-                {% if room.host.superhost %}
-                <span
-                    class="mr-2 uppercase font-medium text-xs border border-black text-black rounded py-px px-1">Superhost</span>
-                {% endif %}
-                <span class="text-sm text-gray-600 block truncate">{{room.city}}, {{room.country.name}}</span>
+                <span class="text-sm text-gray-600 mr-1 ">{{room.city}}</span>
+                <span class="uppercase font-medium text-xs border border-black text-black rounded "> Rs{{room.price}}/night</span>
             </div>
             <span class="text-sm flex items-center">
                 <i class="fas fa-star text-red-500 text-xs mr-1"></i> {{room.total_rating}}

@@ -6,10 +6,6 @@ from . import models
 class SearchForm(forms.Form):
 
     city = forms.CharField(initial="Anywhere")
-    # country = forms.ChoiceField(choices=list(countries))
-    # room_type = forms.ModelChoiceField(
-    #     required=False, empty_label="Any kind", queryset=models.RoomType.objects.all()
-    # )
     price = forms.IntegerField(required=False)
     guests = forms.IntegerField(required=False)
     bedrooms = forms.IntegerField(required=False)

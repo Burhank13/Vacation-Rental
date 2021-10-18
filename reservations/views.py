@@ -24,7 +24,7 @@ def create(request, room, year, month, day):
         messages.error(request, "Can't Reserve That Room")
         return redirect(reverse("core:home"))
     except models.BookedDay.DoesNotExist:
-        reservation = models.Reservation.objects.create(guest=request.user,room=room,check_in=date_obj,check_out=date_obj + datetime.timedelta(days=1),)
+        reservation = models.Reservation.objects.create(guest=request.user, room=room, check_in=date_obj, check_out=date_obj + datetime.timedelta(days=1),)
         return redirect(reverse("reservations:detail", kwargs={"pk": reservation.pk}))
 
 

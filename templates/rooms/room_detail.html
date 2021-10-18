@@ -22,6 +22,7 @@
             <div class="mb-5">
                 <h4 class="text-3xl font-medium mb-px">{{room.name}}</h4>
                 <span class="text-gray-700 font-light">{{room.city}}</span>
+                <span class="text-gray-700 font-light">{{room.prices}}</span>
             </div>
             <a href="{{room.host.get_absolute_url}}" class="flex flex-col items-center">
                 <!-- original code starts-->
@@ -45,7 +46,6 @@
             href="{% url 'lists:toggle-room' room.pk %}?action=add">{% trans "Save to Favourites" %}</a>
         {% endif %}
         <div class="flex border-section">
-            <span class="mr-5 font-light">{{room.room_type}}</span>
             <span class="mr-5 font-light">{{room.beds}} bed{{room.beds|pluralize}}</span>
             <span class="mr-5 font-light">{{room.bedrooms}} bedroom{{room.bedrooms|pluralize}}</span>
             <span class="mr-5 font-light">{{room.baths}} bath{{room.baths|pluralize}}</span>

@@ -123,7 +123,6 @@ class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
     fields = (
         "name",
         "description",
-        "country",
         "city",
         "price",
         "address",
@@ -134,7 +133,6 @@ class EditRoomView(user_mixins.LoggedInOnlyView, UpdateView):
         "check_in",
         "check_out",
         "instant_book",
-        "room_type",
         "amenities",
         "facilities",
         "house_rules",

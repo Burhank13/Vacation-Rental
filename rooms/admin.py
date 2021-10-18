@@ -33,7 +33,6 @@ class RoomAdmin(admin.ModelAdmin):
                 "fields": (
                     "name",
                     "description",
-                    "country",
                     "city",
                     "address",
                     "price",
