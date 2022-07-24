@@ -12,17 +12,20 @@ Conversation
 <div class="container-fluid"> 
 <div class="flex-row flex-wrap" style="display: flex; justify-content: space-evenly;">
     {% for reservation in reservations %}
-    <div class="border mt-5" style="width: 360px; height: auto">
+    <div class="border mt-5" style="width: 360px; height: auto; border-color: black;">
         <a href="{% url 'reservations:detail' reservation.pk %}">
         <span class="text-center block text-lg font-medium"> Details</span>
         <div class="text-center">
             {{reservation.room.name}}
+        
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{reservation.check_in}} - {{reservation.check_out}}</span>
+                <span class="mt-2">{{reservation.check_in}} - {{reservation.check_out}}</span>
             </div>
-            
-            <span class="font-medium text-2xl">{{reservation.status}}</span>
-            
+            {% if reservation.status == "pending" %}
+            <span class="font-medium text-2xl text-center">Pending</span>
+            {% else %}
+            <span class="font-medium text-2xl text-center">Confirmed</span>
+            {% endif %}
         </div>
         </a>
     </div>

@@ -9,8 +9,8 @@ Home
     <div class="h-50vh  mt-10 mb-5 bg-center bg-cover  overflow-hidden"
         style="background: url(https://www.fodors.com/wp-content/uploads/2018/10/Indias-Most-Beautiful-Beaches-Goa-Hero.jpg)">
     </div>
-    <div class="container">
-    <div class="flex flex-wrap mb-10">
+    <!-- <div class="container "> -->
+    <div class="flex flex-wrap mb-10 ">
         {% for room in rooms  %}
         {% include 'mixins/room_card.html' with room=room %}
         {% endfor %}

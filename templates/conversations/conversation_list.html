@@ -19,7 +19,7 @@ Conversation
         <div class="text-center">
             {% for user in users.participants.all  %}
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{user.first_name}}</span>
+                <span class="mt-2">{{user.first_name}}</span>
             </div>
             {% if forloop.first %}
             <span class="font-medium text-2xl">&</span>

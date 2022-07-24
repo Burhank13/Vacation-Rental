@@ -9,25 +9,25 @@ Conversation
 
 {% block content %}
 {% if bookings %}
-<H1> Pending</H1>
-<div class="container-fluid"> 
+<H1 class="font-medium text-2xl text-center"> Pending</H1>
+<div class="container-fluid mb-5"> 
 <div class="flex-row flex-wrap" style="display: flex; justify-content: space-evenly;">
     
     {% for reservation in bookings %}
     {% if reservation.status == "pending" %}
-    <div class="border mt-5" style="width: 360px; height: auto">
+    <div class="border mt-5" style="width: 360px; height: auto ; border-color: black;">
         <a href="{% url 'reservations:detail' reservation.pk %}">
         <span class="text-center block text-lg font-medium"> Details</span>
         <div class="text-center">
             {{reservation.room.name}}
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{reservation.guest}}</span>
+                <span class="mt-2 " style="color: blue;">{{reservation.guest}}</span>
             </div>
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{reservation.check_in}} - {{reservation.check_out}}</span>
+                <span class="mt-2">{{reservation.check_in}} - {{reservation.check_out}}</span>
             </div>
             
-            <span class="font-medium text-2xl">{{reservation.status}}</span>
+            <span class="font-medium text-2xl">Pending</span>
             
         </div>
         </a>
@@ -36,25 +36,26 @@ Conversation
     {% endfor %}
 </div>
 </div>
-<H1> Confirmed</H1>
+<hr style="border-color: black;">
+<H1 class="font-medium text-2xl text-center"> Confirmed</H1>
 <div class="container-fluid"> 
 <div class="flex-row flex-wrap" style="display: flex; justify-content: space-evenly;">
     
     {% for reservation in bookings %}
     {% if reservation.status == "confirmed" %}
-    <div class="border mt-5" style="width: 360px; height: auto">
+    <div class="border mt-5" style="width: 360px; height: auto; border-color: black;">
         <a href="{% url 'reservations:detail' reservation.pk %}">
         <span class="text-center block text-lg font-medium"> Details</span>
         <div class="text-center">
             {{reservation.room.name}}
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{reservation.guest}}</span>
+                <span class="mt-2" style="color: blue;">{{reservation.guest}}</span>
             </div>
             <div class=" items-center">
-                <span class="mt-2 text-gray-500">{{reservation.check_in}} - {{reservation.check_out}}</span>
+                <span class="mt-2 ">{{reservation.check_in}} - {{reservation.check_out}}</span>
             </div>
             
-            <span class="font-medium text-2xl">{{reservation.status}}</span>
+            <span class="font-medium text-2xl">Confirmed</span>
             
         </div>
         </a>

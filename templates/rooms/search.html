@@ -9,11 +9,13 @@ Search
 
 {% block content %}
 
-<div style="width: 90%; margin: 10px auto;">
-    <h3 style="font-size: 20px; font-weight: bold;">Results</h3>
-    {% for room in rooms %}
-    {% include 'mixins/room_card.html' with room=room %}
-    {% endfor %}
+<div style="margin: 10px auto;">
+    <h3 style="font-size: 20px; font-weight: bold; text-align: center;">Results</h3>
+    <div class="flex flex-wrap mb-10 ">
+        {% for room in rooms  %}
+        {% include 'mixins/room_card.html' with room=room %}
+        {% endfor %}
+    </div>
 </div>
 <h2 style="text-align: center; font-size: 30px; font-weight: bold; margin: 20px 0;">Search!</h2>
 
